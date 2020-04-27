@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KulgodSFA</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Girassol&family=Roboto&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+<!-- You must now add general jQuery functionality with this link to the jQuery CDN. You don't need to add another document to your project for this one, since it's an absolute link leadinng to a library hosted elsewhere online. -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  
+<!-- Add link to the slicknav-specific script file here. You can find jquery.slicknav.min.css in the "dist" folder your slicknav download, or use the following CDN link. NOTE: this link must *always* come *after* the jQuery CDN link above. -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/jquery.slicknav.min.js"></script>
+
+<!--  Now add the following script to create a slicknav (mobile) version of your navigation menu, then attach it to an empty nav element you'll add before your navigation menu in your HTML. In this case, I've given my navigation menu the .nav_menu class; insert the class attached to your own navigation menu where you see .nav_menu in the following script. In the HTML, you'll see I've added an empty nav element just before .nav_menu and given it the ID #mobilemenu. That ID appears in the script below, too. Insert the class or ID name you've attached to your empty nav element where you see #mobilemenu in the following script. -->
+ <script type="text/javascript">
+    $(document).ready(function () {
+      $("#nav_menu").slicknav({
+          prependTo: "#mobilemenu"
+      });
+  });
+</script>
+</head>
+    <body>
+        <header>
+            <!-- This is the empty nav element that will serve as a placeholder for the slicknav version of .nav_menu. -->
+            <nav id="mobilemenu"></nav>
+            <!-- default nav menu -->
+            <nav id="nav_menu">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="conditionsofuse.html">Conditions of Use</a></li>
+                    <li><a href="#">Guides</a>
+                <ul>
+                    <li><a href="#">Costal Grid</a></li>
+                    <li><a href="#">Sub-Maps</a></li>
+                    <li><a href="#">Wreck Diving Details</a></li>
+                </ul>
+                    </li>
+                    <li><a href="design_spec_pdf.pdf" class="lastitem">Design Specifications</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="body">
+            <h3>Welcome To</h3>
+            <h1>IRISHWRECKSONLINE&#169;</h1>
+            <h2>A Diver's Guide to Shipwrecks Around Ireland</h2>
+            <h3 class="caption">(10,308 vessels approx. wrecked and/or stranded!)</h3>
+        </main>
+        <div class="footerc">
+            <i class="fas fa-water" id="object1"></i>
+            <i class="fas fa-ship" id="object2"></i>
+            <i class="fas fa-mountain" id="object3"></i>
+            <br>
+            <i class="fas fa-anchor" id="object4"></i>
+            <i class="fas fa-skull-crossbones" id="object5"></i>
+            <i class="fas fa-water" id="object6"></i>
+            <br>
+            <i class="fas fa-water" id="object7"></i>
+            <i class="fas fa-ship" id="object8"></i>
+            <i class="fas fa-mountain" id="object9"></i>
+            <br>
+            <br>
+            <div id="cr">&#169; copyright IRISHWRECKSONLINE.net 1997-2019 - All external rights respectfully acknowledged</div>
+        </div>
+        <div class="footerd">
+            <h3>IRISHWRECKSONLINE.NET is an award winning website! <br> Some of our most recent awards include:</h3>
+            <ul>
+                <li>Gold Site Maritime Web Award</li>
+                <li>Web Master's Choice recognition of World Class Website</li>
+                <li>Lagoon View Yacht Club Award of Merit</li>
+                <li>Our awards are pictured below!</li>
+            </ul>
+            <!--Insert images of awards-->
+            <br>
+            <br>
+            <ul id="imgaward">
+                <li><img src = "img/gold-site-award.png" alt = "gold-site-award" /></li>
+                <li><img src = "img/lagoon-view-yacht-club.png" alt = "lagoon-view-yacht-club" /></li>
+                <li><img src = "img/world-class-web.png" alt = "world-class-web" /></li>
+            </ul>
+        </div>
+        <div class="footere"></div>
+    </body>

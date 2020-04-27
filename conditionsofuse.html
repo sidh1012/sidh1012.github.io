@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>KulgodSFACOU</title>
+<link rel="index" href="index.html">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Girassol&family=Roboto&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+<!-- You must now add general jQuery functionality with this link to the jQuery CDN. You don't need to add another document to your project for this one, since it's an absolute link leadinng to a library hosted elsewhere online. -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  
+<!-- Add link to the slicknav-specific script file here. You can find jquery.slicknav.min.css in the "dist" folder your slicknav download, or use the following CDN link. NOTE: this link must *always* come *after* the jQuery CDN link above. -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/jquery.slicknav.min.js"></script>
+
+<!--  Now add the following script to create a slicknav (mobile) version of your navigation menu, then attach it to an empty nav element you'll add before your navigation menu in your HTML. In this case, I've given my navigation menu the .nav_menu class; insert the class attached to your own navigation menu where you see .nav_menu in the following script. In the HTML, you'll see I've added an empty nav element just before .nav_menu and given it the ID #mobilemenu. That ID appears in the script below, too. Insert the class or ID name you've attached to your empty nav element where you see #mobilemenu in the following script. -->
+ <script type="text/javascript">
+    $(document).ready(function () {
+      $("#nav_menu").slicknav({
+          prependTo: "#mobilemenu"
+      });
+  });
+</script>
+</head>
+
+<body>
+        <header>
+            <!-- This is the empty nav element that will serve as a placeholder for the slicknav version of .nav_menu. -->
+            <nav id="mobilemenu"></nav>
+            <!-- default nav menu -->
+            <nav id="nav_menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Conditions of Use</a></li>
+                    <li><a href="#">Guides</a>
+                <ul>
+                    <li><a href="#">Costal Grid</a></li>
+                    <li><a href="#">Sub-Maps</a></li>
+                    <li><a href="#">Wreck Diving Details</a></li>
+                </ul>
+                    </li>
+                    <li><a href="design_spec_pdf.pdf" class="lastitem">Design Specifications</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="COUbody">
+            <h1>CONDITIONS OF USE</h1>
+            <div class="COUparagraph">
+                The information contained within this award winning Web Site is specifically designed as a guide for recreational divers and is totally free. It is as accurate as possible at the time of publication, but should not be construed as an invitation to dive any particular wreck.
+                <br>
+                <br>
+                If you undertake to dive any wreck(s) it is assumed that- (i) you are suitably trained to do so, (ii) you have permission from the owner, (iii) you will abide by the laws of wreck ownership, and those of salvage, within the country whose coastal waters the wreck resides.
+                <br>
+                <br>
+                No liability will be accepted for any loss, accident or subsequent prosecution resulting from the use / misuse of the information or advice contained within these pages.
+                <br>
+                <br>
+                Reproduction of any part of this site in any form, other than for your own use, will result in immediate prosecution under the laws of Copyright of the country in which you reside.
+                <br>
+                <br>
+                You may link this site to your own website, but please, only via the the address below - 
+                <br>
+                <br>
+                http://www.irishwrecksonline.net/index/
+                <br>
+                <br>
+            </div>
+        </main>
+        <div class="footerc">
+            <i class="fas fa-water" id="object1"></i>
+            <i class="fas fa-ship" id="object2"></i>
+            <i class="fas fa-mountain" id="object3"></i>
+            <i class="fas fa-anchor" id="object4"></i>
+            <i class="fas fa-skull-crossbones" id="object5"></i>
+            <i class="fas fa-water" id="object6"></i>
+            <br>
+            <br>
+            <div id="cr">&#169; copyright IRISHWRECKSONLINE.net 1997-2019 - All external rights respectfully acknowledged</div>
+        </div>
+        <div class="footerd">
+            <!-- fieldset -->
+        <form action="url_to_send_form_data" method="post">
+            <fieldset>
+            <div id="top_label">
+                <label for="top">Sign up for our mailing list!</label>
+            </div>
+            <div class="label">
+                <label for="full_name">Full Name:</label><br />
+                <input type="text" name="firstname"/>
+             </div>
+             <div class="label">
+                <label for="email">email:</label><br />
+                <input type="email" name="email"/>
+            </div>
+            <button type="submit" id=info_submit>Submit</button>
+            </fieldset>
+         </form>
+        </div>
+        <div class="footere"></div>
+</body>
+
