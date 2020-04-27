@@ -1,0 +1,542 @@
+body {
+    display: grid;
+    grid-template-rows: 1fr 8fr 6fr;
+    grid-template-areas: 
+        "h h h h h h"
+        "b b b b b b"
+        "c c c d d e";
+    height: 50em;
+    margin: 0;
+    grid-gap: 8px;
+  }
+
+  header {
+      background-color: #ffffff;
+      grid-column: 1/-1;
+      grid-area: h;
+  }
+
+  #nav_menu {
+    position: fixed;
+    top: 0;
+    height: 40%;
+    width: 90%;
+    font-family: 'Roboto';
+    font-size: 1.1em;
+    z-index: 1000;
+    margin-right: 3%;
+    margin-left: 4%;
+    margin-top: 8px;
+  }
+  
+  #nav_menu ul {
+    list-style: none;
+    position: relative;
+    /* So the first submenu can be positioned within the main menu */
+  }
+  
+  #nav_menu ul li {
+    float: left;
+    font-family: 'Roboto';
+    font-size: 1em;
+  }
+  
+  #nav_menu ul ul {
+    display: none;
+    /* Don't display submenu until hover of the li element */
+    position: absolute;
+    top: 100%;
+    text-align: center;
+    /* Position the submenu at the bottom of the main menu */
+  }
+  
+  #nav_menu ul ul li {
+    float: none;
+    /* Display the submenus vertically */
+    position: relative;
+    /* So the second submenu can be positioned within the first submenu */
+  }
+  
+  #nav_menu ul ul li ul {
+    position: absolute;
+    left: 50;
+    /* Position the second submenu at the left side of the li element */
+    top: 0;
+    /* Position the second submenu at the top of the li element */
+  }
+  
+  #nav_menu ul li:hover > ul {
+    display: block;
+    /* Display the submenu on hover of the li element */
+  }
+  
+  #nav_menu ul::after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+  
+  /* Styles for the formatting of the multi-tier navigation menu */
+  #nav_menu ul {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #nav_menu ul li {
+    width: 25%;
+  }
+  
+  #nav_menu ul li a {
+    text-align: center;
+    display: block;
+    padding: 1em 0;
+    text-decoration: none;
+    background-color: #002147;
+    color: white;
+    font-weight: bold;
+  }
+  
+  #nav_menu ul li a.current {
+    color: aquamarine;
+  }
+  
+  #nav_menu ul li a:hover,
+  #nav_menu ul li a:focus {
+    background-color: #F14C38;
+  }
+  
+  #nav_menu ul li:hover ul {
+    width: 100%;
+  }
+  
+  #nav_menu ul li:hover ul li a {
+    display: block;
+    /* width: 178px; */
+    text-align: center;
+  }
+  
+  /* Hide the slicknav version of the menu by default, until 767px is reached */
+  .slicknav_menu {
+    display: none;
+  }
+  
+  /* Change the font size of the .nav_menu at 767px */
+  @media only screen and (max-width: 767px) {
+    .nav_menu ul li a {
+      font-size: 0.875em;
+    }
+  }
+  
+  /* Tweak the styling of .nav_menu, then replace it with the .slicknav_menu version at 767px; slicknav default styles can be tweaked here as well (I've included only one example of this below, but you can do as much as you like) */
+  @media only screen and (max-width: 767px) {
+    /* Hide the #nav_menu at 767 px */
+    #nav_menu {
+      display: none;
+    }
+  
+    /* Display the slicknav version of the menu at 767px */
+    .slicknav_menu {
+      display: block;
+    }
+  
+    .slicknav_menu .slicknav_menutxt {
+      color: aquamarine;
+      text-shadow: 0 1px 3px #000;
+      font-family: 'Roboto';
+    }
+    
+    .slicknav_nav .slicknav_row,
+    .slicknav_nav a {
+      display: block;
+      max-width: 100px;
+    }
+  
+    .slicknav_nav ul {
+      margin: 0 0 0 20px;
+      text-align: center;
+    }
+  }
+  
+  /* slicknav css */
+  
+  /*!
+  * SlickNav Responsive Mobile Menu v1.0.10
+  * (c) 2016 Josh Cope
+  * licensed under MIT
+  */
+  .slicknav_btn {
+      position: relative;
+      display: block;
+      vertical-align: middle;
+      float: right;
+      padding: 0.438em 0.625em 0.438em 0.625em;
+      line-height: 1.125em;
+      cursor: pointer;
+  }
+  
+  .slicknav_btn .slicknav_icon-bar + .slicknav_icon-bar {
+      margin-top: 0.188em;
+  }
+  
+  .slicknav_menu {
+      *zoom: 1;
+  }
+  
+  .slicknav_menu .slicknav_menutxt {
+      display: block;
+      line-height: 1.188em;
+      float: left;
+  }
+  
+  .slicknav_menu .slicknav_icon {
+      float: left;
+      width: 1.125em;
+      height: 0.875em;
+      margin: 0.188em 0 0 0.438em;
+  }
+  
+  .slicknav_menu .slicknav_icon:before {
+      background: transparent;
+      width: 1.125em;
+      height: 0.875em;
+      display: block;
+      content: "";
+      position: absolute;
+  }
+  
+  .slicknav_menu .slicknav_no-text {
+      margin: 0;
+  }
+  
+  .slicknav_menu .slicknav_icon-bar {
+      display: block;
+      width: 1.125em;
+      height: 0.125em;
+      -webkit-border-radius: 1px;
+      -moz-border-radius: 1px;
+      border-radius: 1px;
+      -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+      -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  }
+  
+  .slicknav_menu:before {
+      content: " ";
+      display: table;
+  }
+  
+  .slicknav_menu:after {
+      content: " ";
+      display: table;
+      clear: both;
+  }
+  
+  .slicknav_nav {
+      clear: both;
+  }
+  
+  .slicknav_nav ul {
+      display: block;
+  }
+  
+  .slicknav_nav li {
+      display: block;
+  }
+  
+  .slicknav_nav .slicknav_arrow {
+      font-size: 0.8em;
+      margin: 0 0 0 0.4em;
+  }
+  
+  .slicknav_nav .slicknav_item {
+      cursor: pointer;
+  }
+  
+  .slicknav_nav .slicknav_item a {
+      display: inline;
+  }
+  
+  .slicknav_nav .slicknav_row {
+      display: block;
+  }
+  
+  .slicknav_nav a {
+      display: block;
+  }
+  
+  .slicknav_nav .slicknav_parent-link a {
+      display: inline;
+  }
+  
+  .slicknav_brand {
+      float: left;
+  }
+  
+  .slicknav_menu {
+      font-size: 16px;
+      box-sizing: border-box;
+      background: #002147;
+      padding: 5px;
+  }
+  
+  .slicknav_menu * {
+      box-sizing: border-box;
+  }
+  
+  .slicknav_menu .slicknav_menutxt {
+      color: #fff;
+      font-weight: bold;
+      text-shadow: 0 1px 3px #000;
+  }
+  
+  .slicknav_menu .slicknav_icon-bar {
+      background-color: #fff;
+  }
+  
+  .slicknav_btn {
+      margin: 5px 5px 6px;
+      text-decoration: none;
+      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      background-color: #F14C38;
+  }
+  
+  .slicknav_nav {
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      font-size: 0.875em;
+      list-style: none;
+      overflow: hidden;
+  }
+  
+  .slicknav_nav ul {
+      list-style: none;
+      overflow: hidden;
+      padding: 0;
+      margin: 0 0 0 20px;
+  }
+  
+  .slicknav_nav .slicknav_row {
+      padding: 5px 10px;
+      margin: 2px 5px;
+  }
+  
+  .slicknav_nav .slicknav_row:hover {
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      border-radius: 6px;
+      background: #ccc;
+      color: #fff;
+  }
+  
+  .slicknav_nav a {
+      padding: 5px 10px;
+      margin: 2px 5px;
+      text-decoration: none;
+      color: #fff;
+  }
+  
+  .slicknav_nav a:hover {
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      border-radius: 6px;
+      background: #ccc;
+      color: #03406A;
+      padding: 8%;
+  }
+  
+  .slicknav_nav .slicknav_txtnode {
+      margin-left: 15px;
+  }
+  
+  .slicknav_nav .slicknav_item a {
+      padding: 0;
+      margin: 0;
+  }
+  
+  .slicknav_nav .slicknav_parent-link a {
+      padding: 0;
+      margin: 0;
+  }
+  
+  .slicknav_brand {
+      color: #fff;
+      font-size: 18px;
+      line-height: 30px;
+      padding: 7px 12px;
+      height: 44px;
+  }
+
+  .header_title {
+    color: #002147;
+    font-size: 40px;
+    padding-left: 15%;
+  }
+
+  .body {
+      background-color: #c2b280;
+      grid-column: 1/-1;
+      grid-area: b;
+      color: #002147;
+      text-align: center;
+      padding-top: 5%;
+      padding-bottom: 3%;
+      font-family: 'Girassol', cursive;
+  }
+
+  .caption{
+      color: #F14C38;
+  }
+
+  h1 {
+      font-style: italic;
+      font-size: 60px;
+  }
+
+  .awards {
+      fill: #002147;
+  }
+
+  .footerc {
+      background-color: #ffffff;
+      grid-column: 1/-1;
+      grid-area: c;
+      text-align: center;
+      padding-top: 7%;
+  }
+
+  #object1 {
+      color: #F14C38;
+      font-size: 50px;
+  }
+
+  #object2 {
+    color: #002147;
+    font-size: 50px;
+}
+
+#object3 {
+    color: #c2b280;
+    font-size: 50px;
+}
+
+#object4 {
+    color: #F14C38;
+    font-size: 50px;
+}
+
+#object5 {
+    color: #002147;
+    font-size:50px;
+}
+
+#object6 {
+    color: #c2b280;
+    font-size: 50px;
+}
+
+#object7 {
+    color: #F14C38;
+    font-size: 50px;
+}
+
+#object8 {
+  color: #002147;
+  font-size: 50px;
+}
+
+#object9 {
+  color: #c2b280;
+  font-size: 50px;
+}
+  .footerd{
+      background-color: #002147;
+      grid-area: d;
+      color: #ffffff;
+      font-family: 'Roboto';
+      padding: 4%;
+      width: 100%;
+      margin-bottom: 8px;
+  }
+
+  .footere {
+      background-color: #ffffff;
+      grid-area: e;
+  }
+
+  .COUbody {
+    background-color: #c2b280;
+    grid-column: 1/-1;
+    grid-area: b;
+    color: #002147;
+    text-align: center;
+    padding-top: 4%;
+    font-family: 'Girassol', cursive;
+}
+    .COUparagraph {
+      font-family: 'Roboto';
+  }
+
+  #imgaward {
+    padding-right: 10%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+  }
+  
+  i {
+      padding: 3%;
+      padding-top: 6%;
+  }
+
+  #cr {
+      float: left;
+      float: bottom;
+  }
+
+  #top_label {
+    padding-top: 2px;
+    padding-bottom: 30px;
+    
+  }
+
+  .label {
+    margin-left: 20px;
+  }
+
+  #info_submit {
+    width: 92%;
+    margin-top: 5px; 
+    text-align: center;
+    border:0;
+    background:#c2b280;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 3px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+    margin-right: -15px;
+}
+
+#info_submit:hover {
+    background: #F14C38;
+}
+
+form {
+    color: #002147;
+    background-color: #ffffff;
+    width: 92%;
+}
+
+input,
+textarea {
+ padding: 3px;
+ width: 93%;
+ font-family: 'Roboto';
+}
+  
